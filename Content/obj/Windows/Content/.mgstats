@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Dev2019/MonoGame/Arkanoid/Content/barraarkanoid.png","D:/Dev2019/MonoGame/Arkanoid/Content/bin/Windows/Content/barraarkanoid.xnb","TextureProcessor","Texture2DContent",19502,57869,0.1734838
+"D:/Dev2019/MonoGame/Arkanoid/Content/bolaarkanoid.png","D:/Dev2019/MonoGame/Arkanoid/Content/bin/Windows/Content/bolaarkanoid.xnb","TextureProcessor","Texture2DContent",14016,12625,0.0082213
