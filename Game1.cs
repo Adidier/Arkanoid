@@ -14,7 +14,7 @@ namespace Arkanoid
 		SpriteBatch spriteBatch;
 
 		Paddle paddle;
-
+        Wall wall;
 
 		public Game1()
 		{
@@ -30,9 +30,10 @@ namespace Arkanoid
 		/// </summary>
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
-			
-			base.Initialize();
+            // TODO: Add your initialization logic here
+            
+
+            base.Initialize();
 		}
 
 		/// <summary>
@@ -44,8 +45,10 @@ namespace Arkanoid
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			paddle = new Paddle(this, spriteBatch);
-			// TODO: use this.Content to load your game content here
-		}
+            wall = new Wall(this, spriteBatch);
+            wall.Init(6, 6);
+            // TODO: use this.Content to load your game content here
+        }
 
 		/// <summary>
 		/// UnloadContent will be called once per game and is the place to unload
@@ -81,10 +84,9 @@ namespace Arkanoid
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			paddle.Draw();
-
-			// TODO: Add your drawing code here
-
-			base.Draw(gameTime);
+            // TODO: Add your drawing code here
+            wall.Draw();
+            base.Draw(gameTime);
 		}
 	}
 }

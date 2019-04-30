@@ -4,10 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Dev2019/MonoGame/Arkanoid/Content/barraarkanoid.png</File>
-    <File>D:/Dev2019/MonoGame/Arkanoid/Content/bolaarkanoid.png</File>
+    <File>C:/Dev/Arkanoid/Content/barraarkanoid.png</File>
+    <File>C:/Dev/Arkanoid/Content/bolaarkanoid.png</File>
+    <File>C:/Dev/Arkanoid/Content/brick.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
