@@ -13,7 +13,8 @@ namespace Arkanoid
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		Paddle paddle;
+        Ball ball;
+        Paddle paddle;
         Wall wall;
 
 		public Game1()
@@ -47,6 +48,8 @@ namespace Arkanoid
 			paddle = new Paddle(this, spriteBatch);
             wall = new Wall(this, spriteBatch);
             wall.Init(6, 6);
+            ball = new Ball(this, spriteBatch);
+            ball.Init(new Vector2(200, 200));
             // TODO: use this.Content to load your game content here
         }
 
@@ -70,8 +73,9 @@ namespace Arkanoid
 				Exit();
 
 			paddle.Input();
-			// TODO: Add your update logic here
-
+            // TODO: Add your update logic here
+            ball.Update();
+            ball.CheckCollision(paddle, wall);
 			base.Update(gameTime);
 		}
 
@@ -86,6 +90,7 @@ namespace Arkanoid
 			paddle.Draw();
             // TODO: Add your drawing code here
             wall.Draw();
+            ball.Draw();
             base.Draw(gameTime);
 		}
 	}

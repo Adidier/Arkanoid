@@ -11,28 +11,32 @@ namespace Arkanoid.Source
 {
 	public class Paddle : GameObject
 	{
-		private Texture2D texture;
-		private Vector2 position;
+		public Texture2D texture { get; set; }
+        Vector2 position;
 		SpriteBatch spriteBatch;
 		Game game;
+        public int vel { get; set; }
 
-		public Paddle(Game game,SpriteBatch spriteBatch)
+        private Rectangle boxCollision;
+
+        public Paddle(Game game,SpriteBatch spriteBatch)
 		{
 			this.game = game;
 			texture = game.Content.Load<Texture2D>("barraarkanoid");
-			position = new Vector2(0, 0);
+			position = new Vector2(100, 300);
 			this.spriteBatch = spriteBatch;
+            vel = 5;
 		}
 
 		public void Input()
 		{
 			if(Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
-				position.X--;
+				position.X-= vel;
 			}
 			else if(Keyboard.GetState().IsKeyDown(Keys.Right))
 			{
-				position.X++;
+				position.X+= vel;
 			}
 		}
 
@@ -41,6 +45,14 @@ namespace Arkanoid.Source
 			spriteBatch.Begin();
 			spriteBatch.Draw(texture, position, Color.White);
 			spriteBatch.End();
-		}
-	}
+            boxCollision = new Rectangle((int)position.X,
+               (int)position.Y, texture.Width, texture.Height);
+
+        }
+
+        public Rectangle GetBoxCollison()
+        {
+            return boxCollision;
+        }
+    }
 }

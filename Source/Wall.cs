@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Arkanoid.Source
 {
-    class Wall 
+    public class Wall 
     {
         SpriteBatch spriteBatch;
         Game game;
 
-        List<Brick> bricks;
+        public List<Brick> Bricks { get; set; }
         int lineSize;
-        int numberLines;
+        int numberLines;       
 
         public Wall(Game game, SpriteBatch spriteBatch)
         {
             this.game = game;
             this.spriteBatch = spriteBatch;
-            bricks = new List<Brick>();
+            Bricks = new List<Brick>();
         }
 
         public void Init(int lineSize,int numberLines)
@@ -51,7 +51,7 @@ namespace Arkanoid.Source
                 {
                     brick.color = Color.Pink;
                 }
-                bricks.Add(brick);
+                Bricks.Add(brick);
 
                 x += 60;
                 if (i % 6 == 0)
@@ -66,8 +66,9 @@ namespace Arkanoid.Source
 
         public void Draw()
         {
-            foreach(var brick in bricks)
+            foreach(var brick in Bricks)
             {
+                brick.Update();
                 brick.Draw();
             }
         }

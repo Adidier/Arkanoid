@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Arkanoid.Source
 {
-    class Brick : GameObject
+    public class Brick : GameObject
     {
         private Texture2D texture;
         private Vector2 position;
         SpriteBatch spriteBatch;
         Game game;
         public Color color { get; set; }
+        private Rectangle boxCollision;
 
         public Brick(Game game, SpriteBatch spriteBatch)
         {
@@ -29,9 +30,16 @@ namespace Arkanoid.Source
             this.position = position;
         }
 
-        public void Update(Vector2 ballPosition)
+        public void Update()
         {
+            boxCollision = new Rectangle((int)position.X,
+                (int)position.Y, texture.Width, texture.Height);
 
+        }
+
+        public Rectangle GetBoxCollison()
+        {
+               return boxCollision;
         }
 
         public void Draw()
